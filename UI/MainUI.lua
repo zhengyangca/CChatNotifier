@@ -13,8 +13,11 @@ frame:SetWidth(275);
 frame:SetHeight(MIN_ITEMS*LIST_ITEM_HEIGHT + HEIGHT_NO_CONTENT);
 frame:SetResizable(true);
 frame:SetClampedToScreen(true);
-frame:SetMaxResize(400, MAX_ITEMS*LIST_ITEM_HEIGHT + HEIGHT_NO_CONTENT);
-frame:SetMinResize(250, MIN_ITEMS*LIST_ITEM_HEIGHT + HEIGHT_NO_CONTENT);
+---START CHANGES
+frame:SetResizeBounds(250, MIN_ITEMS*LIST_ITEM_HEIGHT + HEIGHT_NO_CONTENT, 400, MAX_ITEMS*LIST_ITEM_HEIGHT + HEIGHT_NO_CONTENT);
+--frame:SetMaxResize(400, MAX_ITEMS*LIST_ITEM_HEIGHT + HEIGHT_NO_CONTENT);
+--frame:SetMinResize(250, MIN_ITEMS*LIST_ITEM_HEIGHT + HEIGHT_NO_CONTENT);
+---END CHANGES
 frame:SetMovable(true);
 frame:EnableMouse(true);
 frame.TitleText:SetText(_addonName);
@@ -130,7 +133,10 @@ local function MakeEditBox(parent, maxLen, height, isMultiline)
     if height then
         edit:SetHeight(height);
     end
-    edit:SetFont("Fonts\\FRIZQT__.TTF", 11);
+    ---START CHANGES
+    edit:SetFont("Fonts\\FRIZQT__.TTF", 11, "");
+    --edit:SetFont("Fonts\\FRIZQT__.TTF", 11);
+    ---END CHANGES
     edit:SetJustifyH("LEFT");
     edit:SetJustifyV("CENTER");
     edit:SetTextInsets(7,7,7,7);

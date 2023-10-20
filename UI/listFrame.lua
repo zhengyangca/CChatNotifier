@@ -15,8 +15,11 @@ listFrame:SetWidth(275);
 listFrame:SetHeight(340);
 listFrame:SetResizable(true);
 listFrame:SetClampedToScreen(true);
-listFrame:SetMaxResize(400, 449);
-listFrame:SetMinResize(250, 340);
+---START CHANGES
+frame:SetResizeBounds(250, 340, 400, 449);
+---END CHANGES
+--listFrame:SetMaxResize(400, 449);
+--listFrame:SetMinResize(250, 340);
 listFrame:SetMovable(true);
 listFrame:EnableMouse(true);
 listFrame:RegisterForDrag("LeftButton");
@@ -101,7 +104,11 @@ local function MakeEditBox(parent, maxLen, height, isMultiline)
     if height then
         edit:SetHeight(height);
     end
-    edit:SetFont("Fonts\\FRIZQT__.TTF", 11);
+    ---START CHANGES
+    edit:SetFont("Fonts\\FRIZQT__.TTF", 11, "");
+    --edit:SetFont("Fonts\\FRIZQT__.TTF", 11);
+    ---END CHANGES
+    --edit:SetFont("Fonts\\FRIZQT__.TTF", 11);
     edit:SetJustifyH("LEFT");
     edit:SetJustifyV("CENTER");
     edit:SetTextInsets(7,7,7,7);
